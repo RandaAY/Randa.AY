@@ -2,22 +2,31 @@
 ## This assignment demonstrates two sequential functions 1. makes a matrix object capable of caching the matrix's inverse 2.calculate the aforementioned cached inverse in the first function. 
 
 ## The first function creates a certain matrix object that is capable of caching the matrix's inverse
-
+##First we set the matrix value
+##Then we get the matrix value
+#Then we do the same for the inverse of the matrix: first we set the value, then we get the value of the inverse of the matrix
 makeCacheMatrix <- function(x = matrix()) {
-  inv=NULL set<-function(y){x<<-y inv<<-NULL} get<-function(x) 
+  inv=NULL 
+  set<-function(y){
+    x<<-y 
+    inv<<-NULL} get<-function()x 
   setInv<-function(inverse) inv<<-inverse 
     getInv<-function()inv
-    list(set=set, get=get, setmean=setmean, getmean=getmean)}
+    list(set=set, get=get, setInv=setInv, getInv=getInv)}
 
 
 ## After caching the matrix's inverse in the first function, the next one calculates this inverse. Since the matrix has not changed, the cacheSolve function below should extract the inverse
-
+## ##to check the calculation of the inverse of the matrix
+##if the calculation has been done, get it
+## if not, then calculate and obtain the result
 
 cacheSolve <- function(x, ...) {
-        inv<-x$getInv() if(!is.null(inv)){
+        inv<-x$getInv() 
+        if(!is.null(inv)){ 
           message("get cached data") return(inv)
-        } MTX<-x$get()
-        inv<-solve(MTX, ...)
+        } 
+        MTX<-x$get()
+        inv<-solve(MTX)
         x$setInv(inv)
         inv}
 
